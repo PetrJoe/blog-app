@@ -14,5 +14,5 @@ pip install djangorestframework==3.12.4
 pip install gunicorn==20.1.0
 pip install Pillow==8.2.0
 pip install whitenoise==5.2.0
-python manage.py migrate --no-input
-python manage.py collectstatic --no-input
+pip install requests --user
+pip install --upgrade pip
