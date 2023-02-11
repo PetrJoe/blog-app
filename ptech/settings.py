@@ -3,6 +3,7 @@ from django.core.wsgi import get_wsgi_application
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import dj_database_url
 from django.core.management.utils  import get_random_secret_key
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -103,11 +104,19 @@ TEMPLATES = [
 WSGI_APPLICATION = 'ptech.wsgi.application'
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': dj_database_url.config(
+        default='postgresql://postgres:UuMU3oRuFp7L93hvvnBV@containers-us-west-88.railway.app:7806/railway',
+        conn_max_age=600
+    )
 }
 
 
