@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<title>{% block title %}Bloglit{% endblock %}</title>
+
+<div class="container">
+    <div class="row" style="margin-top: 65px;">
+        <div class="col-md-8 offset-md-2">
+            <article class="blog-post pb-2 mb-5">
+                <form class="d-flex" action="{% url 'searchposts' %}" method="GET" value="{{request.GET.q}}">
+                    <input type="text" name="q" value="{{request.GET.q}}" class="form-control me-2"placeholder="Search" aria-label="Search" required="true">
+                    <input class="btn btn-primary btn-sm mt-1 mb-1" type="submit" name="submit" value="Search"/>
+                </form>                 
+            </article>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row" style="margin-top: -40px;">
+        <div class="col-md-8 offset-md-2">
+            <article class="blog-post pb-2">
+                {% if submitbutton == 'Search' and request.GET.q != '' %}
+                    {% if results %}
+                    <h5 class="card-header text-center">Results for <b>"{{ request.GET.q }}"</b></h5>
+                    <br/><br/>
+                        <div class="card-body">
+                            {% for result in results %}
+                                {% for post in results %}
+                                    <a class="card-title" href="{% url 'post_detail' post.slug  %}">{{ result.title  }}</a>
+                                    <p class="card-text text-muted h6">{{ result.author }} | {{ result.created_on}}  </p>
+                                    <p class="card-text">{{ result.body|safe|slice:":200" }} </p>
+                                {% endfor %}
+                            <br/>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="col-md-12">
+                            <div class="my-5">
+                                <div class="card-body">
+                                    <h4 class="card-text"> No search results "{{ request.GET.q }}"</h4>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endif %} 
+            </article>
+        </div>
+    </div>
+</div>
+{% endblock %}

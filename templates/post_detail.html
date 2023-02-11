@@ -1,0 +1,102 @@
+{% extends 'base.html' %} {% block content %}
+{% load crispy_forms_tags %}
+{% load social_share %}
+  <title>{% block title %}Bloglit | {{ post.title }}{% endblock %}</title>  
+  <meta name="description" content="{{ post.title }}">
+  <section class="uk-section uk-section-small">
+    <div id="author-wrap" class="uk-container uk-container-small">
+      <div class="uk-grid uk-grid-medium uk-flex uk-flex-middle" data-uk-grid>
+        <div class="uk-width-auto">
+          <!-- <img src="/static/img/logo.png" width="80" height="80" alt="" class="uk-border-circle"> -->
+        </div>
+        <div class="uk-width-expand">
+          <h4 class="uk-margin-remove uk-text-bold">Share:</h4>
+          <span class="uk-text-small uk-text-muted">
+            <ul>
+              {% post_to_facebook object_or_url "Facebook" %}
+              {% post_to_twitter object_or_url "Post to Twitter" %}
+              {% post_to_whatsapp object_or_url "Share via WhatsApp" %}
+            </ul>
+          </span>
+        </div>
+        <div class="uk-width-auto">
+          <div class="uk-inline">
+            <a href="#" class="uk-icon-button" data-uk-icon="icon:more-vertical"></a>
+            <div data-uk-dropdown="mode:click; pos: bottom-right; boundary:#author-wrap">
+              <ul class="uk-nav uk-dropdown-nav">
+                <li class="uk-nav-header">Actions</li>
+                <!-- <li><a href="#">Rate this author</a></li> -->
+                <li><a href="https://instagram.com/_petrjoe_">Follow this author</a></li>
+                <li><a href="#">Bookmark</a></li>
+                <li><a href="/">View more articles</a></li>                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="uk-container uk-container-small">
+    <hr class="uk-margin-remove">
+  </div>
+  
+  <section class="uk-section uk-article">
+    <div class="uk-container uk-container-small">
+      <h2 class="uk-text-bold uk-h1 uk-margin-remove-adjacent uk-margin-remove-top">Fusce facilisis tempus magna ac dignissim.</h2>
+      <p class="uk-article-meta">Written on 12 April 2012. Posted in <a href="#">Blog</a> | <span data-uk-icon="icon: future"></span> Takes 7 min reading.</p>
+      
+      <p class="uk-text-lead">{{ post.body | safe }}</p>
+    </div>
+  </section>
+<div class="uk-container uk-container-small">
+  <h2 class="uk-text-bold uk-h2 uk-margin-remove-adjacent uk-margin-remove-top">
+    {% with comments.count as total_comments %}
+      {% if total_comments < 1 %}        
+          Comment ({{ total_comments }}).
+      {% elif total_comments == 1 %}
+        Comment ({{ total_comments }}).
+      {% else %}
+        Comments ({{ total_comments }}).
+      {% endif %}
+    {% endwith %}
+  </h2>
+
+  <div class="col-md-10">
+      {% for comment in comments %}
+
+    <div class="comments" style="padding: 10px;">
+      <p class="font-weight-bold">
+        <strong>{{ comment.name }}</strong> | 
+        <span class=" text-muted font-weight-normal">
+          <small>{{ comment.created_on }}</small>
+        </span>
+      </p>
+      {{ comment.body | linebreaks }}
+    </div>
+
+    {% endfor %}
+  </div>
+
+  <div class="col-md-10 mb-4  mt-3 ">
+    <div class="card-body">
+      {% if new_comment %}
+      <div class="alert alert-success" role="alert">
+        Your comment is awaiting moderation
+      </div>
+      {% else %}
+      <h4>Leave a comment</h4>
+        <form method="post">
+          {% csrf_token %}
+          <input type="text" name="name" maxlength="80" class="uk-input" style="margin-top: 10px;" placeholder="Name" required="" id="id_name">
+          <input type="email" name="email" maxlength="254" class="uk-input" style="margin-top: 10px;" placeholder="Email" required="" id="id_email">
+          <textarea name="body" cols="40" rows="10" class="uk-textarea" style="margin-top: 10px;" placeholder="Message" required="" id="id_body"></textarea>
+          <button type="submit" class="uk-button uk-button-primary" style="margin-top: 10px; margin-bottom: 10%;">Submit</button>
+        </form>
+      {% endif %}
+    </div>
+  </div>
+
+
+</div>
+{% endblock content %}

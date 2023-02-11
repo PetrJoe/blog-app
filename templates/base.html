@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Bloglit</title>
+    <link rel="manifest" href="manifest.json" />
+    <link href='/static/img/logo.png' rel='icon' type='image/x-icon'/>
+    <meta name="Copyright" content="Bloglit" />
+    <meta name="google" content="notranslate" />
+    <meta name="author" content="PetrJoe">
+    <meta name="description" content="Learn Digital Marketing and Web Programming">
+    <meta name="keywords" content="Python Programming, Django, Digital Marketing, SEO, Web Programming, Auditing, Keywords, Research, Free SEO Tools Forex Trading, Forex, Trading, Synthetic indices" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="google-site-verification" content="H7-yZ6O90rVzf6g8UNlzN1iHRs1T8cCYHv88m6Dok9g"/>
+    <meta name="generator" content="Hugo 0.88.1">
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Bloglit" />
+    <meta name="apple-mobile-web-app-title" content="Bloglit" />
+    <meta name="msapplication-starturl" content="/" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.24/dist/css/uikit.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css">
+  </head>
+  <body>
+    <nav class="uk-navbar-container uk-margin" uk-navbar="mode: click">
+      <div class="uk-navbar-left">    
+        <a class="uk-navbar-item uk-logo" href="/" title="Logo"><img src="/static/img/logo.png" alt="Logo"></a>
+          <ul class="uk-navbar-nav">
+              <li class="uk-active"><a href="/">Home</a></li>
+              <li><a href="{% url 'about' %}">About</a></li>
+              <li><a href="{% url 'contact' %}">Contact</a></li>
+              <li><a href="#">More</a></li>
+              <div uk-dropdown>
+                <ul class="uk-nav uk-dropdown-nav">
+                  <li><a href="{% url 'searchposts' %}">Search</a></li>
+                  <li><a href="{% url 'terms' %}">Terms and Condition</a></li>
+                  <li><a href="{% url 'privacy' %}">Privacy</a></li>
+                  <li><a href="{% url 'disclaimer' %}">Disclaimer</a></li>
+                </ul>
+              </div>
+          </ul>
+      </div>
+    </nav>
+
+    {% block content %}{% endblock content%}
+    <footer class="uk-section uk-section-small uk-section-muted">
+      <div class="uk-container">
+        <p class="uk-text-small uk-text-center">© 2023 PetrJoe, Inc - <a href="https://petrjoe.netlify.app">Created by PetrJoe</a></p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.24/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.24/dist/js/uikit-icons.min.js"></script>
+    <script src="/static/js/htmx.min.js"></script>
+    <script>
+      document.body.addEventListener('htmx:configRequest', (e) => {
+        e.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+      })
+    </script>
+
+    <script type="text/javascript">
+      (function () {
+        var options = {
+            whatsapp: "+2348133643937", // WhatsApp number
+            instagram: "_petrjoe_", // Instagram username
+            facebook: "coin09o", // Instagram username
+            call_to_action: "Message us", // Call to action
+            button_color: "#FF6550", // Color of button
+            position: "right", // Position may be 'right' or 'left'
+            order: "whatsapp,instagram,facebook", // Order of buttons
+        };
+        var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+        s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+      })();
+    </script>
+  </body>
+</html>

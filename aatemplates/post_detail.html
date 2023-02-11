@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %}
+{% load crispy_forms_tags %}
+{% load social_share %}
+<title>{% block title %}Bloglit | {{ post.title }}{% endblock %}</title>
+<meta name="description" content="{{ post.title }}">
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-8 offset-md-2">
+          <article class="blog-post pb-2 mb-5">
+              <h3 class="text-center mx-auto mt-5 mb-4 blog-post-title">{{ post.title }}</h3>
+              <nav class="social-share blog-post-share-nav mb-5">
+                  <a href="#!" class="social-icon icon-fb"> <i class="mdi mdi-facebook-box"></i> </a>
+                  <a href="#!" class="social-icon icon-twitter"> <i class="mdi mdi-twitter-box"></i> </a>
+                  <a href="#!" class="social-icon icon-linkedin"> <i class="mdi mdi-instagram"></i> </a>
+              </nav>
+
+              <div class="blog-post-content">
+                <p class="text-muted">{{ post.author }} | {{ post.created_on }}</p>
+                <div class="share mb-2">
+                  Share:
+                  {% post_to_facebook object_or_url "Facebook" %}
+                  {% post_to_twitter object_or_url "Post to Twitter" %}
+                  {% post_to_whatsapp object_or_url "Share via WhatsApp" %}
+                </div>
+                <p class="">{{ post.body | safe }}</p>
+                <small class="btn btn-sm btn-danger btn-pill mt-3 mb-4">Views: {{ post.postview }}</small>
+              </div>
+          </article>
+      </div>
+  </div>
+</div>
+{% endblock content %}

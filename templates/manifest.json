@@ -1,0 +1,11 @@
+[
+  {
+    "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+    "name": "Bloglit",
+    "short_name": "Bloglit",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "Learn Digital Marketing and Web Programming",
+  }
+]

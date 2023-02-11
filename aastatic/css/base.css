@@ -1,0 +1,135 @@
+.site-heading{
+    margin-top: 100px!important
+}
+.masterhead{
+    background: linear-gradient( rgb(44 46 85 / 57%), rgb(44 46 85 / 57%) ), url(/static/img/header.jpg);
+    background-size: cover;
+    height:400px!important;
+    width: 100%;
+    overflow: hidden;
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #21234bef;
+  /*border-radius: 100px;*/
+}
+
+.navbar-brand{
+    font-weight: 900;
+    font-family: monospace;
+}
+
+.navbar-brand {
+    font-size: x-large;
+    font-family: cursive;
+    font-variant-caps: petite-caps;
+}
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 17px;
+    /* background-color: #cacacaf0; */
+}
+
+.shadow {
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #f00000;
+    border-color: #dc281e;
+}
+
+.masthead {
+    background: #32546d;
+    height: auto;
+    padding-bottom: 15px;
+    box-shadow: 0 16px 48px #E3E7EB;
+    padding-top: 10px;
+}
+
+.card {
+    box-shadow: 0 0px 0px #E3E7EB;
+    border-radius: 10px;
+}
+.sora-ads-full {
+    display: block;
+    background-color: #eee;
+    text-align: center;
+    font-size: 13px;
+    color: #aaaaaa;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 88px;
+    border: 1px solid #ccc;
+}
+
+.sora-ads-side {
+    display: block;
+    background-color: #eee;
+    text-align: center;
+    font-size: 13px;
+    color: #aaaaaa;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 250px;
+    border: 1px solid #ccc;
+}
+
+.share{
+    display: inline-flex;
+}
+.facebook-this,
+.twitter-this,
+.whatsapp-this
+{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+    .videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.navbar{
+    /*background-color: #1c4e74!important;*/
+}
+.readmore{
+    float: right;
+    text-decoration: none;
+}
+.cardimage{
+    width: 100%
+}
+.fa{
+    color: #ffffff;
+}
+.postview{
+    margin-left: 50px;
+}
+.footerlink{
+    display: flex;
+    color:white!important;
+}
+.dfBDQI{
+    display: none;
+}
+.footer{
+    margin-bottom: -20%;
+}
