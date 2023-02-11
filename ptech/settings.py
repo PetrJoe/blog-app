@@ -114,7 +114,7 @@ WSGI_APPLICATION = 'ptech.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:UuMU3oRuFp7L93hvvnBV@containers-us-west-88.railway.app:7806/railway',
+        default='postgresql://postgres:zPIGGnH7sr3Gl9hjsuuT@containers-us-west-176.railway.app:7704/railway',
         conn_max_age=600
     )
 }
