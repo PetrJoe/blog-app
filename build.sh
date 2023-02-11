@@ -13,6 +13,8 @@ pip install django-summernote==0.8.11.6
 pip install djangorestframework==3.12.4
 pip install gunicorn==20.1.0
 pip install Pillow==8.2.0
+pip install psycopg2==2.9.3
+pip install psycopg2-binary==2.9.3
 pip install whitenoise==5.2.0
 pip install requests --user
 pip install --upgrade pip
