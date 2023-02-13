@@ -1,5 +1,6 @@
 pip install cloudinary==1.25.0
 pip install Django==3.1.5
+pip install dj_database_url
 pip install django-allauth==0.44.0
 pip install django-ckeditor==6.0.0
 pip install django-cloudinary-storage==0.3.0
