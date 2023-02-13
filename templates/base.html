@@ -17,14 +17,14 @@
     <meta name="application-name" content="Bloglit" />
     <meta name="apple-mobile-web-app-title" content="Bloglit" />
     <meta name="msapplication-starturl" content="/" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.24/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="/static/css/uikit.min.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/base.css">
     <meta name="monetag" content="415cf943b3966969d480b12d51362782">
   </head>
   <body>
     <nav class="uk-navbar-container uk-margin" uk-navbar="mode: click">
       <div class="uk-navbar-left">    
-        <a class="uk-navbar-item uk-logo" href="/" title="Logo"><img src="/static/img/logo.png" alt="Logo"></a>
+        <a class="uk-logo uk-border-circle uk-navbar-item" href="/" width="80" height="80" title="Logo"><img src="/static/img/logo.png" alt="Logo"></a>
           <ul class="uk-navbar-nav">
               <li class="uk-active"><a href="/">Home</a></li>
               <li><a href="{% url 'about' %}">About</a></li>
@@ -49,15 +49,15 @@
       </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.24/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.24/dist/js/uikit-icons.min.js"></script>
+    <script src="/static/js/uikit.min.js"></script>
+    <script src="/static/js/uikit-icons.min.js"></script>
     <script src="/static/js/htmx.min.js"></script>
     <script>
       document.body.addEventListener('htmx:configRequest', (e) => {
         e.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
       })
     </script>
-
+    {% include 'ads.html'%}
     <script type="text/javascript">
       (function () {
         var options = {

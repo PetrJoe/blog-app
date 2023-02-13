@@ -3,32 +3,35 @@
 {% load social_share %}
   <title>{% block title %}Bloglit | {{ post.title }}{% endblock %}</title>  
   <meta name="description" content="{{ post.title }}">
-  <section class="uk-section uk-section-small">
+    <section class="uk-section uk-section-small" style="margin-top: -40px;">
+      <div class="uk-container">
+        <div class="uk-height-large uk-cover-container uk-border-rounded">
+          <img src="{{post.cover_image.url}}" alt="Alt img" data-uk-cover>
+          <div class="uk-overlay uk-overlay-primary uk-position-cover uk-flex uk-flex-center uk-flex-middle uk-light uk-text-center">
+            <div data-uk-scrollspy="cls: uk-animation-slide-bottom-small">
+              <h1 class="uk-margin-top uk-margin-small-bottom uk-margin-remove-adjacent">{{post.title}}</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <section class="uk-section uk-section-small" style="margin-top: -30px;">
     <div id="author-wrap" class="uk-container uk-container-small">
       <div class="uk-grid uk-grid-medium uk-flex uk-flex-middle" data-uk-grid>
-        <div class="uk-width-auto">
-          <!-- <img src="/static/img/logo.png" width="80" height="80" alt="" class="uk-border-circle"> -->
-        </div>
         <div class="uk-width-expand">
-          <h4 class="uk-margin-remove uk-text-bold">Share:</h4>
-          <span class="uk-text-small uk-text-muted">
-            <ul>
-              {% post_to_facebook object_or_url "Facebook" %}
-              {% post_to_twitter object_or_url "Post to Twitter" %}
-              {% post_to_whatsapp object_or_url "Share via WhatsApp" %}
-            </ul>
-          </span>
+          <h2 class="uk-text-bold uk-h1 uk-margin-remove-adjacent uk-margin-remove-top"></h2>
         </div>
         <div class="uk-width-auto">
           <div class="uk-inline">
             <a href="#" class="uk-icon-button" data-uk-icon="icon:more-vertical"></a>
             <div data-uk-dropdown="mode:click; pos: bottom-right; boundary:#author-wrap">
               <ul class="uk-nav uk-dropdown-nav">
-                <li class="uk-nav-header">Actions</li>
-                <!-- <li><a href="#">Rate this author</a></li> -->
+                <li class="uk-nav-header">Share:</li>
                 <li><a href="https://instagram.com/_petrjoe_">Follow this author</a></li>
-                <li><a href="#">Bookmark</a></li>
-                <li><a href="/">View more articles</a></li>                
+                <li>{% post_to_facebook object_or_url "Facebook" %}</li>
+                <li>{% post_to_twitter object_or_url "Post to Twitter" %}</li>
+                <li>{% post_to_whatsapp object_or_url "Share via WhatsApp" %}</li>
               </ul>
             </div>
           </div>
@@ -41,11 +44,9 @@
     <hr class="uk-margin-remove">
   </div>
   
-  <section class="uk-section uk-article">
+  <section class="uk-section uk-article" style="margin-top: -40px;">
     <div class="uk-container uk-container-small">
-      <h2 class="uk-text-bold uk-h1 uk-margin-remove-adjacent uk-margin-remove-top">Fusce facilisis tempus magna ac dignissim.</h2>
-      <p class="uk-article-meta">Written on 12 April 2012. Posted in <a href="#">Blog</a> | <span data-uk-icon="icon: future"></span> Takes 7 min reading.</p>
-      
+      <p class="uk-article-meta">Written on {{post.updated_on}}. Posted by <a href="#"><strong>{{post.author}}</strong></a> | <span data-uk-icon="icon: future"></span> Takes 7 min reading.</p>      
       <p class="uk-text-lead">{{ post.body | safe }}</p>
     </div>
   </section>

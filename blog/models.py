@@ -9,8 +9,8 @@ STATUS = ((0, "Draft"), (1, "Publish"))
 
 class Post(models.Model):
     objects = None
-    cover_image = models.ImageField(blank=True, null=True, validators=[FileExtensionValidator(allowed_extensions=['jpg', 'png', 'jpeg'])])
-    # cover_image = CloudinaryField(blank=True, null=True, validators=[FileExtensionValidator(allowed_extensions=['jpg', 'png', 'jpeg'])])
+    # cover_image = models.ImageField(blank=True, null=True, validators=[FileExtensionValidator(allowed_extensions=['jpg', 'png', 'jpeg'])])
+    cover_image = CloudinaryField(blank=True, null=True, validators=[FileExtensionValidator(allowed_extensions=['jpg', 'png', 'jpeg'])])
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
